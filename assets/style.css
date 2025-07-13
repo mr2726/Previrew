@@ -233,20 +233,20 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .road__rings--img{
-    width: 150px;
-    height: 100px;
+    width: 100px;
+    height: 67px;
     background: url('https://i.postimg.cc/t4dbRpXH/rings.png') no-repeat center top / cover;
 }
 
 .road__caps--img{
-    margin-top: 20px;
+    margin-top: 10px;
     margin-left: 30px;
-    width: 125px;
-    height: 150px;
+    width: 82px;
+    height: 100px;
     background: url('https://i.postimg.cc/66StYMHF/caps.png') no-repeat center top / cover;
 }
 
@@ -266,7 +266,7 @@ body{
 }
 
 .dresscode{
-    margin-top: 20px; 
+    margin-top: 10px; 
     text-align: center;  
 }
 
@@ -287,7 +287,7 @@ body{
 .dresscode__colors{
     display: flex;
     justify-content: space-between;
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .dresscode__colors--1{
@@ -329,21 +329,21 @@ body{
 
 
 .dresscode__addinfo{
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: "Vrdznagir" !important;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .whether{
     text-align: center;
     font-size: 1.5em;
-    margin: 30px 0;
+    margin: 15px 0;
 }
 
 .contact_info{
     text-align: center;
     font-size: 1.5em;
-    margin: 30px 0;
+    margin: 15px 0;
 }
 
 .last__screen{
