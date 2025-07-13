@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Envelope</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="envelope">
+        <div class="paper">
+          <div id="scroll-indicator">
+            <div class="scroll-indicator-arrow"></div>
+            <!-- <div class="scroll-indicator-text">Проведите вбок</div> -->
+          </div>
+          <div id="preloader">
+            <div class="preloader-content">
+              <div class="preloader-spinner"></div>
+              <div class="preloader-text">Բեռնվում է...</div>
+            </div>
+          </div>
+          <div class="horizontal-scroll-container">
+            <section id="first_screen" class="horizontal-section">
+              <div class="first_screen__top_side">
+                <div class="big_line"></div>
+                <div class="smole_line"></div>
+                <p class="first_screen__top_side--date_and_location">
+                  29.08.25 | Դիլիջան, Հայաստան
+                </p>
+                <p class="title_text">Հրավիրաթերթ</p>
+                <p class="names">ՏԻԳՐԱՆ ԵՎ ԳՈՀԱՐ</p>
+                <div class="smole_line"></div>
+                <div class="big_line" style="margin-top: 3px"></div>
+
+                <div class="first_screen__top_side--image"></div>
+
+                <div class="smole_line"></div>
+                <div class="big_line" style="margin-top: 3px"></div>
+              </div>
+            </section>
+
+            <section class="second_screen horizontal-section">
+              <div class="big_line"></div>
+              <div class="smole_line"></div>
+              <p class="names">Երջանկություն նորապսակներին</p>
+              <div class="smole_line"></div>
+              <div class="big_line" style="margin-top: 3px"></div>
+              <p class="road__title">Օրակարգ</p>
+              <div class="smole_line" style="margin-top: 3px"></div>
+              <div class="road">
+                <div class="roda__rings">
+                  <div class="road__rings--img"></div>
+                  <div class="road__rings--texts">
+                    <p class="title">Պսակադրություն</p>
+                    <p class="additional">Գոշավանք 17:30</p>
+                  </div>
+                </div>
+
+                <div class="roda__rings" style="margin-bottom: 20px">
+                  <div class="road__caps--img"></div>
+                  <div class="road__rings--texts">
+                    <p class="title">Միջոցառում</p>
+                    <p class="additional_">Hover Gardens 16:00</p>
+                  </div>
+                </div>
+              </div>
+              <div class="smole_line" style="margin-top: 3px"></div>
+              <div class="dresscode">
+                <p class="dresscode__title">Dress code</p>
+                <p class="dresscode__text">Երեկոյան</p>
+                <div class="dresscode__colors">
+                  <div class="dresscode__colors--1"></div>
+                  <div class="dresscode__colors--2"></div>
+                  <div class="dresscode__colors--3"></div>
+                  <div class="dresscode__colors--4"></div>
+                  <div class="dresscode__colors--5"></div>
+                  <div class="dresscode__colors--6"></div>
+                  <div class="dresscode__colors--7"></div>
+                </div>
+                <p class="dresscode__addinfo">
+                  Խնդրում ենք կրել պաստելային երանգների հագուստ` զերծ մնալով վառ
+                  գույներից
+                </p>
+              </div>
+              <div class="big_line"></div>
+              <div class="smole_line"></div>
+              <p class="whether">
+                Երեկոյան Դիլիջանում եղանակն անկանխատեսելի է. չմոռանաք ձեզ հետ
+                վերցնել տաք հագուստ և հարմար կոշիկներ:
+              </p>
+              <div class="smole_line"></div>
+              <div class="contact_info">
+                <p class="contact_info__title">Հարցերի դեպքում զանգահարել</p>
+                <p class="contact_info__pn">044755777 / 077001068</p>
+              </div>
+              <div class="smole_line"></div>
+              <div class="big_line" style="margin-top: 3px"></div>
+            </section>
+            <section class="last__screen horizontal-section">
+              <div class="big_line"></div>
+              <div class="smole_line"></div>
+
+              <div class="last__img"></div>
+              <div class="smole_line"></div>
+              <p class="last_info">
+                Խնդրում ենք հաստատել Ձեր ներկայությունը մինչև Օգոտոսի 10-ը
+              </p>
+              <input
+                type="text"
+                id="last_info__input"
+                placeholder="Մուտքագրեք ձեր անունը և ազգանունը"
+              />
+              <button id="btn">հաստատել</button>
+              <div class="smole_line"></div>
+              <div class="big_line" style="margin-top: 3px"></div>
+            </section>
+          </div>
+        </div>
+
+        <div class="envelope__open"></div>
+        <div class="envelope__flap"></div>
+        <div class="envelope__body"></div>
+        <div class="envelope__seal"></div>
+        <div class="envelope__bottom"></div>
+        <div class="button"></div>
+      </div>
+    </div>
+  </body>
+  <script src="paper-move.js"></script>
+  <script src="./assets/js/main.js"></script>
+</html>
