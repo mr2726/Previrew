@@ -216,14 +216,10 @@ body{
 .first_screen__top_side--image{
     margin: 10px 0;
     width: 100%;
-    height: 100vh;
-    background-image: url('img/1.png');
+    height: calc(100vh - 201px);
+    background-image: url('https://i.postimg.cc/VL60bZJT/1.png');
     background-size: cover;
     background-position: center;
-}
-
-.second_screen{
-    /* margin-top: 20px; */
 }
 
 .road__title{
