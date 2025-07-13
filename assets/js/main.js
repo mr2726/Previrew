@@ -1,4 +1,5 @@
 // --- Horizontal page-like scroll (snap to section) ---
+
 function getSections() {
     return Array.from(document.querySelectorAll('.horizontal-section'));
 }
@@ -30,38 +31,62 @@ function getCurrentSectionIndex() {
 function setupPageLikeScroll() {
     const container = document.querySelector('.horizontal-scroll-container');
     if (!container) return;
+
     let isWheelScrolling = false;
     let wheelTimeout;
+
+    // Прокрутка колесом мыши
     container.addEventListener('wheel', function(e) {
-        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return; // только горизонтальные жесты
+        if (Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
         e.preventDefault();
         if (isWheelScrolling) return;
+
         isWheelScrolling = true;
         const sections = getSections();
         let idx = getCurrentSectionIndex();
+
         if (e.deltaX > 0 && idx < sections.length - 1) {
             scrollToSection(idx + 1);
         } else if (e.deltaX < 0 && idx > 0) {
             scrollToSection(idx - 1);
         }
+
         clearTimeout(wheelTimeout);
-        wheelTimeout = setTimeout(() => { isWheelScrolling = false; }, 500);
+        wheelTimeout = setTimeout(() => {
+            isWheelScrolling = false;
+        }, 500);
     }, { passive: false });
 
-    // Touch swipe (mobile)
+    // Свайпы на мобильных устройствах (фикс перескакивания)
     let touchStartX = null;
     let touchStartY = null;
+    let isSwiping = false;
+
     container.addEventListener('touchstart', function(e) {
         if (e.touches && e.touches.length === 1) {
             touchStartX = e.touches[0].clientX;
             touchStartY = e.touches[0].clientY;
+            isSwiping = true;
         }
-    });
+    }, { passive: false });
+
+    container.addEventListener('touchmove', function(e) {
+        if (!isSwiping) return;
+        const dx = e.touches[0].clientX - touchStartX;
+        const dy = e.touches[0].clientY - touchStartY;
+
+        if (Math.abs(dx) > Math.abs(dy)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
     container.addEventListener('touchend', function(e) {
-        if (touchStartX === null || touchStartY === null) return;
+        if (!isSwiping || touchStartX === null || touchStartY === null) return;
+
         const touch = e.changedTouches[0];
         const dx = touch.clientX - touchStartX;
         const dy = touch.clientY - touchStartY;
+
         if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
             let idx = getCurrentSectionIndex();
             if (dx < 0) {
@@ -70,11 +95,15 @@ function setupPageLikeScroll() {
                 scrollToSection(idx - 1);
             }
         }
+
         touchStartX = null;
         touchStartY = null;
-    });
+        isSwiping = false;
+    }, { passive: false });
 }
-// Horizontal scroll indicator logic
+
+// --- Scroll indicator logic ---
+
 let scrollIndicatorShown = false;
 let scrollIndicatorHidden = false;
 
@@ -99,30 +128,30 @@ function hideScrollIndicator() {
 function setupScrollIndicator() {
     const indicator = document.getElementById('scroll-indicator');
     if (indicator) {
-        indicator.classList.add('hide'); // Скрыть по умолчанию
+        indicator.classList.add('hide');
     }
-    // Показать через 5 секунд после исчезновения прелоадера
+
     setTimeout(() => {
         if (!scrollIndicatorHidden) showScrollIndicator();
     }, 5000);
 
-    // Скрыть при первом горизонтальном скролле/свайпе
     const container = document.querySelector('.horizontal-scroll-container');
     if (container) {
         let scrolled = false;
-        container.addEventListener('scroll', function(e) {
+        container.addEventListener('scroll', function() {
             if (!scrolled && Math.abs(container.scrollLeft) > 10) {
                 scrolled = true;
                 hideScrollIndicator();
             }
         });
-        // Для мобильных свайпов (touch)
+
         let touchStartX = null;
         container.addEventListener('touchstart', function(e) {
             if (e.touches && e.touches.length === 1) {
                 touchStartX = e.touches[0].clientX;
             }
         });
+
         container.addEventListener('touchmove', function(e) {
             if (touchStartX !== null && e.touches && e.touches.length === 1) {
                 const deltaX = Math.abs(e.touches[0].clientX - touchStartX);
@@ -132,12 +161,15 @@ function setupScrollIndicator() {
                 }
             }
         });
+
         container.addEventListener('touchend', function() {
             touchStartX = null;
         });
     }
 }
-// Fix 100vh issue on mobile devices
+
+// --- Full height fix for mobile devices ---
+
 function setFullHeight() {
     const vh = window.innerHeight;
     const sections = document.querySelectorAll('.horizontal-section');
@@ -154,23 +186,24 @@ window.addEventListener('resize', setFullHeight);
 window.addEventListener('orientationchange', setFullHeight);
 document.addEventListener('DOMContentLoaded', setFullHeight);
 
-// Preloader logic
+// --- Preloader logic ---
+
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     const indicator = document.getElementById('scroll-indicator');
+
     if (indicator) {
-        indicator.classList.add('hide'); // Скрыть индикатор на экране загрузки
+        indicator.classList.add('hide');
     }
+
     if (preloader) {
         preloader.classList.add('hide');
         setTimeout(() => {
             preloader.remove();
-            // После исчезновения прелоадера запускаем индикатор
             setupScrollIndicator();
             setupPageLikeScroll();
-        }, 800); // match transition duration
+        }, 800);
     } else {
-        // Если прелоадера нет, всё равно запускаем индикатор
         setupScrollIndicator();
         setupPageLikeScroll();
     }
