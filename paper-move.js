@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!paper) return;
 
   // Удаляем анимацию paperScale до переноса
-  paper.style.animation = "paperAnimation 2s forwards 4s";
+  // paper.style.animation = "paperAnimation 2s forwards 4s";
 
   paper.addEventListener("animationend", (event) => {
     if (event.animationName === "paperAnimation") {
