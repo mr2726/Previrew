@@ -115,7 +115,7 @@
 .preloader-text {
     font-size: 2em;
     color: #9a765a;
-    font-family: "TitleFont", sans-serif;
+    font-family: "montAm", sans-serif;
     letter-spacing: 2px;
 }
 @font-face {
@@ -124,6 +124,23 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: '4';
+  src: url('./fonts/4.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'montAm';
+  src: url('./fonts/Montserratarm-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
 /* Vrdznagir */
 @font-face {
   font-family: 'Vrdznagir';
@@ -196,6 +213,7 @@ body{
 .first_screen__top_side--date_and_location, .names{
     text-align: center;
     text-transform: uppercase;
+    font-family: "montAm";
     color: black;
     font-size: 1.5em;
     padding-top: 3px;
@@ -223,6 +241,7 @@ body{
 }
 
 .road__title{
+    font-family: "montAm";
     text-align: center;
     color: black;
     font-size: 2.2em;
@@ -344,6 +363,7 @@ body{
 }
 
 .whether{
+    font-family: "4";
     text-align: center;
     font-size: 1.2em;
     margin: 15px 0;
@@ -353,6 +373,7 @@ body{
     text-align: center;
     font-size: 1.5em;
     margin: 15px 0;
+    font-family: "4";
 }
 
 .last__screen{
@@ -400,6 +421,9 @@ body{
     background: #fff;
 }
 
+.title{
+    font-family: "montAm";
+}
 
 #btn{
     width: 180px;
