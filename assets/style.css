@@ -239,7 +239,7 @@ body{
 .road__rings--img{
     width: 150px;
     height: 100px;
-    background: url('img/rings.png') no-repeat center top / cover;
+    background: url('https://i.postimg.cc/t4dbRpXH/rings.png') no-repeat center top / cover;
 }
 
 .road__caps--img{
@@ -247,7 +247,7 @@ body{
     margin-left: 30px;
     width: 125px;
     height: 150px;
-    background: url('img/caps.png') no-repeat center top / cover;
+    background: url('https://i.postimg.cc/66StYMHF/caps.png') no-repeat center top / cover;
 }
 
 .road__rings--texts{
@@ -293,38 +293,38 @@ body{
 .dresscode__colors--1{
     width: 35px;
     height: 35px;
-    background: url('img/pink.png') no-repeat center / cover;
+    background: url('https://i.postimg.cc/dtyvXGp3/pink.png') no-repeat center / cover;
 }
 .dresscode__colors--2{
     width: 35px;
     height: 35px;
-    background: url('img/yellow.png') no-repeat center / cover;
+    background: url('https://i.postimg.cc/Dw3FK83g/yellow.png') no-repeat center / cover;
 }
 
 .dresscode__colors--3{
     width: 35px;
     height: 35px;
-    background: url('img/gray.png') no-repeat center / cover;
+    background: url('https://i.postimg.cc/zB28m7qb/gray.png') no-repeat center / cover;
 }
 .dresscode__colors--4{
     width: 35px;
     height: 35px;
-    background: url('img/liteblue.png') no-repeat center / cover;
+    background: url('https://i.postimg.cc/6qDKqQ2B/liteblue.png') no-repeat center / cover;
 }
 .dresscode__colors--5{
     width: 35px;
     height: 35px;
-    background: url('img/idk.png') no-repeat center / cover;
+    background: url('https://i.postimg.cc/D0WF7GzC/idk.png') no-repeat center / cover;
 }
 .dresscode__colors--6{
     width: 35px;
     height: 35px;
-    background: url('img/brown.png') no-repeat center / cover;
+    background: url('https://i.postimg.cc/d0BJ6vX9/brown.png') no-repeat center / cover;
 }
 .dresscode__colors--7{
     width: 35px;
     height: 35px;
-    background: url('img/darkgray.png') no-repeat center / cover;
+    background: url('https://i.postimg.cc/NMjBPSvv/darkgray.png') no-repeat center / cover;
 }
 
 
@@ -355,7 +355,7 @@ body{
 .last__img{
     width: 100%;
     height: 100vh;
-    background-image: url('img/2.png');
+    background-image: url('https://i.postimg.cc/25mzn3H6/2.png');
     background-size: cover;
     background-position: center;
     margin: 10px 0;
