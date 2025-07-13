@@ -31,8 +31,8 @@ const openConv = document.querySelector(".envelope__open");
 const paper = document.querySelector(".paper");
 
 clickon.addEventListener("click", () => {
-  openConv.style.animation = "openFlapHalf 2s forwards";
+  openConv.style.animation = "openFlapHalf 0.6s forwards";
   setTimeout(() => {
-    paper.style.animation = " paperAnimation 2s forwards 4s, paperScale 1s forwards 6s";
+    paper.style.animation = " paperAnimation 0.6s forwards 4s, paperScale 1s forwards 6s";
   });
 });
