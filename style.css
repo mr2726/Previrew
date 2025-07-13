@@ -60,7 +60,7 @@
   /* position: absolute; */
 }
 
-.envelope__open::after {
+.envelope__open {
   content: "";
   position: fixed;
   left: 0px;
@@ -75,7 +75,7 @@
   /* border-radius: 16px 16px 32px 32px; */
   box-shadow: 0 4px 16px 0 #b2a18455, 0 0 0 2px #b2a18433;
   transform-origin: top center; /* 👈 начало поворота сверху */
-  animation: openFlapHalf 2s forwards;
+  /* animation: openFlapHalf 2s forwards; */
   animation-delay: 2s;
   backface-visibility: visible;
   transition: box-shadow 0.3s, filter 0.3s;
@@ -168,7 +168,7 @@
   height: 100vh;
   background: white;
   transform: translate(-50%, -50%) scale(0.2);
-  animation: paperAnimation 2s forwards 4s, paperScale 1s forwards 6s;
+  /* animation: paperAnimation 2s forwards 4s, paperScale 1s forwards 6s; */
 }
 
 @keyframes paperAnimation {
