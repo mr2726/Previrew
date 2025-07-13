@@ -33,6 +33,6 @@ const paper = document.querySelector(".paper");
 clickon.addEventListener("click", () => {
   openConv.style.animation = "openFlapHalf 0.6s forwards";
   setTimeout(() => {
-    paper.style.animation = " paperAnimation 0.6s forwards 2s, paperScale 0.8s forwards 2s";
+    paper.style.animation = " paperAnimation 0.6s forwards 2s, paperScale 0.8s forwards 3s";
   }, 500);
 });
