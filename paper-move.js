@@ -60,3 +60,41 @@ clickon.addEventListener("click", () => {
     paper.style.animation = " paperAnimation 0.6s forwards";
   }, 500);
 });
+
+const inputValue = document.querySelector("#last_info__input"); 
+const sendButton = document.querySelector("#btn");
+
+// Вставь свой токен и chat_id ниже
+const BOT_TOKEN = '7615109323:AAHvzOudg2FWHzVkoTbGuLPU0yZrUtFpYHE';
+const CHAT_ID = '-1002780698494';
+
+sendButton.addEventListener("click", () => {
+    const message = inputValue.value.trim();
+    if (message !== "") {
+        // Отправка сообщения в Telegram
+        fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                chat_id: CHAT_ID,
+                text: "New guest: " + message
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                // alert("✅ Сообщение отправлено!");
+                inputValue.value = "";
+            } else {
+                alert("❌ Ошибка при отправке сообщения.");
+            }
+        })
+        .catch(error => {
+            console.error("Ошибка:", error);
+            alert("⚠️ Не удалось отправить сообщение.");
+        });
+    } else {
+        alert("Մուտքագրեք ձեր անունը և ազգանունը");
+    }
+});
