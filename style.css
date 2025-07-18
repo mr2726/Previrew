@@ -10,24 +10,39 @@
   align-items: center;
   height: 100vh;
   width: 100%;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-  overflow: hidden;
+  max-width: 500px;
+  margin: 0 auto;    
+  max-width: 500px;
+  -webkit-perspective: 1000px;
+    -moz-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    overflow: hidden;
 }
 .wrapper,
 .envelope {
-  z-index: 1;
+    z-index: 1;
 }
 
 .button {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  top: 50%;    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
   width: 50px;
   height: 50px;
   z-index: 99999;
@@ -50,7 +65,11 @@
 }
 .envelope:hover {
   box-shadow: 0 24px 60px 0 #6a5a3acc, 0 4px 24px 0 #0004, 0 0 0 3px #b2a18488;
+  -webkit-filter: drop-shadow(0 4px 16px #b2a184cc) brightness(1.03) contrast(1.12);
   filter: drop-shadow(0 4px 16px #b2a184cc) brightness(1.03) contrast(1.12);
+  -webkit-transform: scale(1.03) rotateZ(-1deg);
+  -moz-transform: scale(1.03) rotateZ(-1deg);
+  -ms-transform: scale(1.03) rotateZ(-1deg);
   transform: scale(1.03) rotateZ(-1deg);
 }
 
@@ -79,6 +98,26 @@
   /* animation-delay: 2s; */
   backface-visibility: visible;
   transition: box-shadow 0.3s, filter 0.3s;
+}
+@-webkit-keyframes openFlapHalf {
+  0% {
+    -webkit-transform: rotateX(0deg);
+    z-index: 9;
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+    z-index: -1;
+  }
+}
+@-moz-keyframes openFlapHalf {
+  0% {
+    -moz-transform: rotateX(0deg);
+    z-index: 9;
+  }
+  100% {
+    -moz-transform: rotateX(-180deg);
+    z-index: -1;
+  }
 }
 @keyframes openFlapHalf {
   0% {
@@ -167,10 +206,35 @@
   width: 100vw;
   height: 100vh;
   background: white;
+  -webkit-transform: translate(-50%, -50%) scale(0.2);
+  -moz-transform: translate(-50%, -50%) scale(0.2);
+  -ms-transform: translate(-50%, -50%) scale(0.2);
   transform: translate(-50%, -50%) scale(0.2);
-  /* animation: paperAnimation 2s forwards 4s, paperScale 1s forwards 6s; */
+  /* -webkit-animation: paperAnimation 2s forwards 4s, paperScale 1s forwards 6s;
+  -moz-animation: paperAnimation 2s forwards 4s, paperScale 1s forwards 6s;
+  animation: paperAnimation 2s forwards 4s, paperScale 1s forwards 6s; */
 }
 
+@-webkit-keyframes paperAnimation {
+  0% {
+    top: 50%;
+    z-index: 1;
+  }
+  100% {
+    top: -100px;
+    z-index: 1;
+  }
+}
+@-moz-keyframes paperAnimation {
+  0% {
+    top: 50%;
+    z-index: 1;
+  }
+  100% {
+    top: -100px;
+    z-index: 1;
+  }
+}
 @keyframes paperAnimation {
   0% {
     top: 50%;
@@ -182,13 +246,33 @@
   }
 }
 
+@-webkit-keyframes paperScale {
+  0% {
+  }
+  100% {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: scale(1) translateX(-50%);
+  }
+}
+@-moz-keyframes paperScale {
+  0% {
+  }
+  100% {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -moz-transform: scale(1) translateX(-50%);
+  }
+}
 @keyframes paperScale {
   0% {
   }
   100% {
     position: absolute;
     top: 0;
-    left: 0;
-    transform: scale(1);
+    left: 50%;
+    transform: scale(1) translateX(-50%);
   }
 }

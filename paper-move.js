@@ -1,30 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const paper = document.querySelector(".paper");
-  // if (!paper) return;
+document.addEventListener('DOMContentLoaded', () => {
+    const paper = document.querySelector('.paper');
+    const button = document.querySelector('.button');
+    let isOpen = false;
 
-  // // Удаляем анимацию paperScale до переноса
-  // // paper.style.animation = "paperAnimation 2s forwards 4s";
+    function openEnvelope() {
+        if (!isOpen) {
+            // Анимация подъема
+            paper.style.transform = 'translate(-50%, -200%) scale(0.2)';
 
-  // paper.addEventListener("animationend", (event) => {
-  //   if (event.animationName === "paperAnimation") {
-  //     // Получаем координаты центра блока
-  //     const rect = paper.getBoundingClientRect();
-  //     const centerX = rect.left + rect.width / 2;
-  //     const centerY = rect.top + rect.height / 2;
-  //     // Переносим в body
-  //     document.body.appendChild(paper);
-  //     // Фиксируем позицию относительно окна, чтобы центр совпал
-  //     paper.style.position = "fixed";
-  //     paper.style.left = (centerX - paper.offsetWidth / 2) + "px";
-  //     paper.style.top = (centerY - paper.offsetHeight / 2) + "px";
-  //     paper.style.transform = "scale(0.2)";
-  //     // Запускаем анимацию paperScale только после переноса
-  //     setTimeout(() => {
-  //       paper.style.animation = "paperScale 1s forwards";
-  //     }, 10);
-  //   }
-  // });
+            setTimeout(() => {
+                // Анимация раскрытия
+                // paper.style.left = '50%';
+                paper.style.transform = 'translate(-50%, 0) scale(1)';
+                paper.style.top = '0';
+                isOpen = true;
+            }, 2000);
+        }
+    }
+
+    function closeEnvelope() {
+        if (isOpen) {
+            // Анимация закрытия
+            paper.style.transform = 'translate(-50%, -50%) scale(0.2)';
+            paper.style.top = '50%';
+            isOpen = false;
+        }
+    }
+
+    button.addEventListener('click', openEnvelope);
+    // Опционально: добавить возможность закрытия по клику на бумагу
+    paper.addEventListener('click', closeEnvelope);
 });
+
 
 const clickon = document.querySelector(".envelope");
 const openConv = document.querySelector(".envelope__open");
